@@ -23,7 +23,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Running the tests
 
-To run the unit tests, run `npm test`.
 To run the end-to-end tests, ensure the dev server is running then run `npx playwright test` in another terminal window.
 
 # Exercise Requirements
@@ -37,7 +36,7 @@ Create a basic shopping list, with:
 
 With the functionality to:
 
-- [ ] View the shopping list
+- [x] View the shopping list
 - [ ] Add a new item to the shopping list
 - [ ] Remove items from the shopping list
 - [ ] Strikethrough items in the shopping list
