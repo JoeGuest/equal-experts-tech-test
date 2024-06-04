@@ -1,24 +1,8 @@
-const shoppingList = [
-  "Apples",
-  "Bananas",
-  "Carrots",
-  "Cherries",
-  "Dates",
-  "Eggs",
-  "Grapes",
-  "Honey",
-  "Lemons",
-  "Mangoes",
-  "Oranges",
-  "Peacheses",
-  "Pears",
-  "Pineapples",
-  "Plums",
-  "Strawberries",
-  "Watermelon",
-];
+import { getShoppingList } from "./actions/getShoppingList";
 
-export default function Home() {
+export default async function Home() {
+  const shoppingList = await getShoppingList();
+
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-equal-experts-blue p-24">
       <h1 className="font-primary text-4xl font-bold text-white">

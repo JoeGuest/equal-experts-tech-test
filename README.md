@@ -23,7 +23,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Running the tests
 
-To run the unit tests, run `npm test`.
 To run the end-to-end tests, ensure the dev server is running then run `npx playwright test` in another terminal window.
 
 # Exercise Requirements
@@ -37,7 +36,7 @@ Create a basic shopping list, with:
 
 With the functionality to:
 
-- [ ] View the shopping list
+- [x] View the shopping list
 - [ ] Add a new item to the shopping list
 - [ ] Remove items from the shopping list
 - [ ] Strikethrough items in the shopping list
@@ -47,3 +46,15 @@ With the functionality to:
 - [ ] Test coverage
 - [ ] Simplicity
 - [ ] Self-explanatory code
+
+# Notes
+
+## Where's the backend API?
+
+NextJS has support for [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), which is a great way to have a "backend API" without having to write a full backend. We also gain some advantages of using this function-first methodology, such as: type safety, autocomplete, and the ability to use the same code for both the frontend and backend.
+
+I've included a specific directory named `/app/actions` which contains the functions which operate as the backend API.
+
+## Why only e2e tests, where are the unit tests?
+
+Similarly to the above point, since NextJS is a full stack framework we can avoid writing frontend only and backend only tests. Due to the size of the app and the time constraints, I don't believe it worthwhile to add another testing framework to the mix. We can still perform TDD using this approach.
