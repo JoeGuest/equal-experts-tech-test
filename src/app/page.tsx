@@ -1,6 +1,20 @@
 import { getShoppingList } from "./actions/getShoppingList";
 
-const AddNewItem = () => {
+async function ShoppingList() {
+  const shoppingList = await getShoppingList();
+
+  return (
+    <div className="flex flex-col gap-4">
+      {shoppingList.map((item) => (
+        <div key={item} className="font-secondary text-2xl text-white">
+          {item}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+async function AddNewItem() {
   return (
     <div className="flex flex-row gap-4">
       <input
@@ -8,12 +22,12 @@ const AddNewItem = () => {
         placeholder="Add new item"
         className="border-0 border-white p-2 font-secondary"
       />
-      <button className="border-0 bg-white p-2 font-primary hover:underline">
+      <button className="border-0 bg-white p-2 font-primary font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline">
         Add Item
       </button>
     </div>
   );
-};
+}
 
 export default async function Home() {
   const shoppingList = await getShoppingList();
@@ -24,11 +38,7 @@ export default async function Home() {
         Equal Experts Shopping List
       </h1>
       <div className="flex flex-col gap-4">
-        {shoppingList.map((item) => (
-          <div key={item} className="font-secondary text-2xl text-white">
-            {item}
-          </div>
-        ))}
+        <ShoppingList />
         <AddNewItem />
       </div>
     </main>
