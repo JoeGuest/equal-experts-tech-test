@@ -17,7 +17,7 @@ const initialShoppingList = [
   { id: 9, name: "Lemons" },
   { id: 10, name: "Mangoes" },
   { id: 11, name: "Oranges" },
-  { id: 12, name: "Peacheses" },
+  { id: 12, name: "Peaches" },
   { id: 13, name: "Pears" },
   { id: 14, name: "Pineapples" },
   { id: 15, name: "Plums" },

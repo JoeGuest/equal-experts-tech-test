@@ -12,7 +12,7 @@ export async function addItemToShoppingList(formData: FormData) {
   const nextIdToUse = lastItem.id + 1;
 
   if (item) {
-    shoppingList.set(nextIdToUse.toString(), { name: item, id: nextIdToUse });
+    shoppingList.set(nextIdToUse.toString(), { id: nextIdToUse, name: item });
     revalidatePath("/");
     return { message: `Added item "${item}" to shopping list` };
   }
