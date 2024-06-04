@@ -16,3 +16,9 @@ test("has shopping list", async ({ page }) => {
   await expect(page.getByText("Oranges")).toBeVisible();
   await expect(page.getByText("Strawberries")).toBeVisible();
 });
+
+test("can add item to shopping list", async ({ page }) => {});
+
+test("can remove item from shopping list", async ({ page }) => {});
+
+test("can strikethrough item from shopping list", async ({ page }) => {});
