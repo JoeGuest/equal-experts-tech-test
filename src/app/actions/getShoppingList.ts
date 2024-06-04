@@ -1,25 +1,7 @@
 "use server";
 
-export async function getShoppingList() {
-  console.log("I'm on the server!");
+import shoppingList from "../data/shoppingList";
 
-  return [
-    "Apples",
-    "Bananas",
-    "Carrots",
-    "Cherries",
-    "Dates",
-    "Eggs",
-    "Grapes",
-    "Honey",
-    "Lemons",
-    "Mangoes",
-    "Oranges",
-    "Peacheses",
-    "Pears",
-    "Pineapples",
-    "Plums",
-    "Strawberries",
-    "Watermelon",
-  ];
+export async function getShoppingList() {
+  return Array.from(shoppingList.values());
 }

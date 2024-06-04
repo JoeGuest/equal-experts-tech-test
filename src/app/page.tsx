@@ -1,8 +1,6 @@
 import { getShoppingList } from "./actions/getShoppingList";
 
 export default async function Home() {
-  console.log("I'm also on the server!");
-
   const shoppingList = await getShoppingList();
 
   return (
