@@ -1,4 +1,4 @@
-const shoppingList = new Map<number, string>();
+const shoppingList = new Map<string, string>();
 
 const initialShoppingList = [
   "Apples",
@@ -21,7 +21,7 @@ const initialShoppingList = [
 ];
 
 initialShoppingList.forEach((item, index) => {
-  shoppingList.set(index, item);
+  shoppingList.set(index.toString(), item);
 });
 
 export default shoppingList;

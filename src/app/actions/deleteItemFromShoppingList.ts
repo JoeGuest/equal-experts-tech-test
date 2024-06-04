@@ -3,15 +3,15 @@
 import { revalidatePath } from "next/cache";
 import shoppingList from "../data/shoppingList";
 
-export async function addItemToShoppingList(formData: FormData) {
+export async function deleteItemFromShoppingList(formData: FormData) {
   // could perform validation here, casting for convenience
 
+  const id = formData.get("id") as string;
   const item = formData.get("item") as string;
-  const position = shoppingList.size;
 
-  if (item) {
-    shoppingList.set(position.toString(), item);
+  if (id && item) {
+    shoppingList.delete(id);
     revalidatePath("/");
-    return { message: `Added item "${item}" to shopping list` };
+    return { message: `Removed item "${item}" to shopping list` };
   }
 }

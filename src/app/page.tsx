@@ -1,15 +1,23 @@
-import { getShoppingList, addItemToShoppingList } from "./actions";
+import {
+  getShoppingList,
+  addItemToShoppingList,
+  deleteItemFromShoppingList,
+} from "./actions";
 
-async function ShoppingListItem({ item }: { item: string }) {
+async function ShoppingListItem({ item, id }: { item: string; id: number }) {
   return (
     <div className="flex flex-row justify-between gap-2">
       <div className="font-secondary text-2xl text-white">{item}</div>
-      <button
-        type="submit"
-        className="border-0 bg-white p-2 font-primary text-xs font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline"
-      >
-        Remove
-      </button>
+      <form className="flex flex-row gap-4" action={deleteItemFromShoppingList}>
+        <input type="hidden" name="id" value={id} />
+        <input type="hidden" name="item" value={item} />
+        <button
+          type="submit"
+          className="border-0 bg-white p-2 font-primary text-xs font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline"
+        >
+          Remove
+        </button>
+      </form>
     </div>
   );
 }
@@ -19,8 +27,8 @@ async function ShoppingList() {
 
   return (
     <div className="flex flex-col gap-4">
-      {shoppingList.map((item) => (
-        <ShoppingListItem key={item} item={item} />
+      {shoppingList.map((item, index) => (
+        <ShoppingListItem key={index} item={item} id={index} />
       ))}
     </div>
   );
