@@ -1,5 +1,20 @@
 import { getShoppingList } from "./actions/getShoppingList";
 
+const AddNewItem = () => {
+  return (
+    <div className="flex flex-row gap-4">
+      <input
+        type="text"
+        placeholder="Add new item"
+        className="border-0 border-white p-2 font-secondary"
+      />
+      <button className="border-0 bg-white p-2 font-primary hover:underline">
+        Add Item
+      </button>
+    </div>
+  );
+};
+
 export default async function Home() {
   const shoppingList = await getShoppingList();
 
@@ -14,6 +29,7 @@ export default async function Home() {
             {item}
           </div>
         ))}
+        <AddNewItem />
       </div>
     </main>
   );
