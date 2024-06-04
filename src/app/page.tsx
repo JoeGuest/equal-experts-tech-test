@@ -2,13 +2,19 @@ import {
   getShoppingList,
   addItemToShoppingList,
   deleteItemFromShoppingList,
+  toggleChecked,
 } from "./actions";
+import { Checkbox } from "./components";
 import type { ShoppingListItem } from "./data/shoppingList";
 
 async function ShoppingListItem({ item }: { item: ShoppingListItem }) {
   return (
     <div className="flex flex-row justify-between gap-2">
-      <div className="font-secondary text-2xl text-white">{item.name}</div>
+      <div className="flex flex-row gap-2">
+        <Checkbox item={item} />
+        <div className="font-secondary text-2xl text-white">{item.name}</div>
+      </div>
+
       <form className="flex flex-row gap-4" action={deleteItemFromShoppingList}>
         <input type="hidden" name="id" value={item.id} />
         <input type="hidden" name="name" value={item.name} />
