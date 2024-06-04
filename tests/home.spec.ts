@@ -128,7 +128,7 @@ test.describe("Removing mayonnaise items", () => {
   });
 });
 
-test.describe.only("Striking through items", () => {
+test.describe("Striking through items", () => {
   const condiment = "Mustard";
 
   test.beforeEach(async ({ page, context }) => {
@@ -152,10 +152,14 @@ test.describe.only("Striking through items", () => {
     });
 
     // Find and click the checkbox
-    const checkbox = item.getByRole("checkbox");
+    const checkbox = page
+      .getByText(`${condiment} from ${browserName}Remove`, {
+        exact: true,
+      })
+      .getByRole("checkbox");
     await checkbox.click();
 
     // Check if item is struckthrough
-    await expect(item).toHaveCSS("text-decoration", "line-through");
+    await expect(item).toHaveCSS("text-decoration", /line-through/);
   });
 });
