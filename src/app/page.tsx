@@ -7,7 +7,9 @@ async function ShoppingListItem({ item }: { item: ShoppingListItem }) {
     <div className="flex flex-row justify-between gap-2">
       <div className="flex flex-row gap-2">
         <Checkbox item={item} />
-        <div className="font-secondary text-2xl text-white">{item.name}</div>
+        <div className="font-secondary text-2xl text-white peer-checked:line-through">
+          {item.name}
+        </div>
       </div>
 
       <RemoveButton item={item} />

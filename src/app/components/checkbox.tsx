@@ -6,6 +6,7 @@ import { ShoppingListItem } from "../data/shoppingList";
 export default function Checkbox({ item }: { item: ShoppingListItem }) {
   return (
     <input
+      className="peer"
       type="checkbox"
       name="item"
       checked={item.checked}
