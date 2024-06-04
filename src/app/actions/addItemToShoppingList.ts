@@ -5,9 +5,11 @@ import shoppingList from "../data/shoppingList";
 
 export async function addItemToShoppingList(formData: FormData) {
   // could perform validation here, casting for convenience
-
   const item = formData.get("item") as string;
+
+  // could sort by id to ensure uniqueness
   const shoppingListAsArray = Array.from(shoppingList.values());
+
   const lastItem = shoppingListAsArray[shoppingListAsArray.length - 1];
   const nextIdToUse = lastItem.id + 1;
 
