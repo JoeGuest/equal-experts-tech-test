@@ -24,7 +24,7 @@ test("can add item to shopping list", async ({ page }) => {
   await page.getByPlaceholder("Add an item").fill("Ketchup");
 
   // Add item
-  await page.getByRole("button", { name: "Add" }).click();
+  await page.getByRole("button", { name: "Add Item" }).click();
 
   // Check that new item is in the list
   await expect(page.getByText("Ketchup")).toBeVisible();

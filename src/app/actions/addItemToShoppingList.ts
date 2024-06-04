@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import shoppingList from "../data/shoppingList";
 
 export async function addItemToShoppingList(formData: FormData) {
@@ -10,6 +11,7 @@ export async function addItemToShoppingList(formData: FormData) {
 
   if (item) {
     shoppingList.set(position, item);
-    return true;
+    revalidatePath("/");
+    return { message: `Added item "${item}" to shopping list` };
   }
 }
