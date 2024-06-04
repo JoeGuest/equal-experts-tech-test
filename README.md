@@ -47,3 +47,11 @@ With the functionality to:
 - [ ] Test coverage
 - [ ] Simplicity
 - [ ] Self-explanatory code
+
+# Notes
+
+## Where's the backend API?
+
+NextJS has support for [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), which is a great way to have a "backend API" without having to write a full backend. We also gain some advantages of using this function-first methodology, such as: type safety, autocomplete, and the ability to use the same code for both the frontend and backend.
+
+I've included a specific directory named `/app/actions` which contains the functions which operate as the backend API.
