@@ -7,11 +7,13 @@ export async function deleteItemFromShoppingList(formData: FormData) {
   // could perform validation here, casting for convenience
 
   const id = formData.get("id") as string;
-  const item = formData.get("item") as string;
+  const name = formData.get("name") as string;
 
-  if (id && item) {
+  console.log(id, name);
+
+  if (id && name) {
     shoppingList.delete(id);
     revalidatePath("/");
-    return { message: `Removed item "${item}" to shopping list` };
+    return { message: `Removed item "${name}" to shopping list` };
   }
 }
