@@ -9,8 +9,6 @@ export async function deleteItemFromShoppingList(formData: FormData) {
   const id = formData.get("id") as string;
   const name = formData.get("name") as string;
 
-  console.log(id, name);
-
   if (id && name) {
     shoppingList.delete(id);
     revalidatePath("/");
