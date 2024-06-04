@@ -1,4 +1,4 @@
-import { getShoppingList } from "./actions/getShoppingList";
+import { getShoppingList, addItemToShoppingList } from "./actions";
 
 async function ShoppingList() {
   const shoppingList = await getShoppingList();
@@ -16,16 +16,21 @@ async function ShoppingList() {
 
 async function AddNewItem() {
   return (
-    <div className="flex flex-row gap-4">
+    <form className="flex flex-row gap-4" action={addItemToShoppingList}>
       <input
+        id="item"
+        name="item"
         type="text"
         placeholder="Add new item"
         className="border-0 border-white p-2 font-secondary"
       />
-      <button className="border-0 bg-white p-2 font-primary font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline">
+      <button
+        type="submit"
+        className="border-0 bg-white p-2 font-primary font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline"
+      >
         Add Item
       </button>
-    </div>
+    </form>
   );
 }
 

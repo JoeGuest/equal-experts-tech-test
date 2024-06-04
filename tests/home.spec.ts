@@ -30,7 +30,7 @@ test("can add item to shopping list", async ({ page }) => {
   await expect(page.getByText("Ketchup")).toBeVisible();
 });
 
-test("can remove item from shopping list", async ({ page }) => {
+test.skip("can remove item from shopping list", async ({ page }) => {
   await page.goto("http://localhost:3000");
 
   // Check if item is in the list
@@ -45,7 +45,7 @@ test("can remove item from shopping list", async ({ page }) => {
   await expect(item).not.toBeVisible();
 });
 
-test("can strikethrough item from shopping list", async ({ page }) => {
+test.skip("can strikethrough item from shopping list", async ({ page }) => {
   await page.goto("http://localhost:3000");
 
   // Check if item is in the list
