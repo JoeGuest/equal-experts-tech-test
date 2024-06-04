@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Equal Experts Full Stack Engineer Exercise - Joseph Guest Submission
 
-## Getting Started
+This is Joseph Guest's submission for the [Equal Experts Full Stack Engineer Exercise](https://equalexperts.github.io/ee-tech-interviews-uk/grocery-list-problem.html).
 
-First, run the development server:
+Version number: 5b8d0fd276b6d288905ed2f63a934e057e8feca2
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Prerequisites
+
+- Node.js
+- NPM
+
+## Installation
+
+To get started, clone the repository and run `npm install`.
+
+## Running the app
+
+To run the application:
+
+Run `npm run dev` to start the development server.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running the tests
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To run the tests, run `npm test`.
 
-## Learn More
+# Exercise Requirements
 
-To learn more about Next.js, take a look at the following resources:
+## The Problem
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a basic shopping list, with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [ ] A web frontend, with the Equal Experts branding
+- [ ] A backend API (happy for data to be stored in memory)
 
-## Deploy on Vercel
+With the functionality to:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] View the shopping list
+- [ ] Add a new item to the shopping list
+- [ ] Remove items from the shopping list
+- [ ] Strikethrough items in the shopping list
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Methods to follow
+
+- [ ] Test coverage
+- [ ] Simplicity
+- [ ] Self-explanatory code
