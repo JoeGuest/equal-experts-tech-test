@@ -20,14 +20,20 @@ test("has shopping list", async ({ page }) => {
 test("can add item to shopping list", async ({ page }) => {
   await page.goto("http://localhost:3000");
 
+  // Get browser name
+  const browserName = await page.evaluate(() => navigator.userAgent);
+
+  // Set item text to be dependent on browser name
+  const itemText = `Ketchup from ${browserName}`;
+
   // Enter new item text
-  await page.getByPlaceholder("Add an item").fill("Ketchup");
+  await page.getByPlaceholder("Add an item").fill(itemText);
 
   // Add item
   await page.getByRole("button", { name: "Add Item" }).click();
 
   // Check that new item is in the list
-  await expect(page.getByText("Ketchup")).toBeVisible();
+  await expect(page.getByText(itemText)).toBeVisible();
 });
 
 test.skip("can remove item from shopping list", async ({ page }) => {
