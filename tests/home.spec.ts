@@ -1,4 +1,37 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, BrowserContext, Page } from "@playwright/test";
+
+async function addItemsForRemoval(page: Page, context: BrowserContext) {
+  // Get browser name
+  const browserName = context.browser()?.browserType().name();
+
+  // Enter new item text
+  await page
+    .getByPlaceholder("Add an item")
+    .fill(`Mayonnaise from ${browserName}`);
+
+  // Add item
+  await page.getByRole("button", { name: "Add Item" }).click();
+}
+
+async function removeAddedItems(page: Page, context: BrowserContext) {
+  // Get browser name
+  const browserName = context.browser()?.browserType().name();
+
+  // Check if item is in the list
+  const item = page.getByText(`Ketchup from ${browserName}`, { exact: true });
+  await expect(item).toBeVisible();
+
+  // Find and click the remove button
+  const removeButton = page
+    .getByText(`Ketchup from ${browserName}Remove`, {
+      exact: true,
+    })
+    .getByRole("button");
+  await removeButton.click();
+
+  // Check if item is removed from the list
+  await expect(item).not.toBeVisible();
+}
 
 test("has title", async ({ page }) => {
   await page.goto("http://localhost:3000");
@@ -17,38 +50,61 @@ test("has shopping list", async ({ page }) => {
   await expect(page.getByText("Strawberries")).toBeVisible();
 });
 
-test("can add item to shopping list", async ({ page }) => {
-  await page.goto("http://localhost:3000");
+test.describe("Adding ketchup items", () => {
+  test.afterEach(async ({ page, context }) => {
+    await removeAddedItems(page, context);
+  });
 
-  // Get browser name
-  const browserName = await page.evaluate(() => navigator.userAgent);
+  test("can add item to shopping list", async ({ page, context }) => {
+    await page.goto("http://localhost:3000");
 
-  // Set item text to be dependent on browser name
-  const itemText = `Ketchup from ${browserName}`;
+    // Get browser name
+    const browserName = context.browser()?.browserType().name();
 
-  // Enter new item text
-  await page.getByPlaceholder("Add an item").fill(itemText);
+    // Set item text to be dependent on browser name
+    const itemText = `Ketchup from ${browserName}`;
 
-  // Add item
-  await page.getByRole("button", { name: "Add Item" }).click();
+    // Enter new item text
+    await page.getByPlaceholder("Add an item").fill(itemText);
 
-  // Check that new item is in the list
-  await expect(page.getByText(itemText)).toBeVisible();
+    // Add item
+    await page.getByRole("button", { name: "Add Item" }).click();
+
+    // Check that new item is in the list
+    await expect(page.getByText(itemText)).toBeVisible();
+  });
 });
 
-test("can remove item from shopping list", async ({ page }) => {
-  await page.goto("http://localhost:3000");
+test.describe("Removing mayonnaise items", () => {
+  test.beforeEach(async ({ page, context }) => {
+    await page.goto("http://localhost:3000");
 
-  // Check if item is in the list
-  const item = await page.locator("text=Apples");
-  await expect(item).toBeVisible();
+    await addItemsForRemoval(page, context);
+  });
 
-  // Find and click the remove button
-  const removeButton = item.locator('button:has-text("Remove")');
-  await removeButton.click();
+  test("can remove item from shopping list", async ({ page, context }) => {
+    await page.goto("http://localhost:3000");
 
-  // Check if item is removed from the list
-  await expect(item).not.toBeVisible();
+    // Get browser name
+    const browserName = context.browser()?.browserType().name();
+
+    // Check if item is in the list
+    const item = page.getByText(`Mayonnaise from ${browserName}`, {
+      exact: true,
+    });
+    await expect(item).toBeVisible();
+
+    // Find and click the remove button
+    const removeButton = page
+      .getByText(`Mayonnaise from ${browserName}Remove`, {
+        exact: true,
+      })
+      .getByRole("button");
+    await removeButton.click();
+
+    // Check if item is removed from the list
+    await expect(item).not.toBeVisible();
+  });
 });
 
 test.skip("can strikethrough item from shopping list", async ({ page }) => {
