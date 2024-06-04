@@ -31,27 +31,27 @@ To run the end-to-end tests, ensure the dev server is running then run `npx play
 
 Create a basic shopping list, with:
 
-- [ ] A web frontend, with the Equal Experts branding
-- [ ] A backend API (happy for data to be stored in memory)
+- [x] A web frontend, with the Equal Experts branding
+- [x] A backend API (happy for data to be stored in memory)
 
 With the functionality to:
 
 - [x] View the shopping list
-- [ ] Add a new item to the shopping list
-- [ ] Remove items from the shopping list
-- [ ] Strikethrough items in the shopping list
+- [x] Add a new item to the shopping list
+- [x] Remove items from the shopping list
+- [x] Strikethrough items in the shopping list
 
 ## Methods to follow
 
-- [ ] Test coverage
-- [ ] Simplicity
-- [ ] Self-explanatory code
+- [x] Test coverage
+- [x] Simplicity (🤞)
+- [x] Self-explanatory code (🤞)
 
 # Notes
 
 ## Where's the backend API?
 
-NextJS has support for [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), which is a great way to have a "backend API" without having to write a full backend. We also gain some advantages of using this function-first methodology, such as: type safety, autocomplete, and the ability to use the same code for both the frontend and backend.
+NextJS has support for [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), which is a great way to have a "backend API" without having to write a full backend. We also gain some advantages of using this function-first methodology, such as: type safety, autocomplete, and the ability to use the same code for both the frontend and backend. I've used these actions both on the server and on the client.
 
 I've included a specific directory named `/app/actions` which contains the functions which operate as the backend API.
 
