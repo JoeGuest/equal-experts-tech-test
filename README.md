@@ -23,7 +23,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Running the tests
 
-To run the tests, run `npm test`.
+To run the unit tests, run `npm test`.
+To run the end-to-end tests, ensure the dev server is running then run `npx playwright test` in another terminal window.
 
 # Exercise Requirements
 
