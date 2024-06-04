@@ -1,23 +1,27 @@
 import { getShoppingList, addItemToShoppingList } from "./actions";
 
+async function ShoppingListItem({ item }: { item: string }) {
+  return (
+    <div className="flex flex-row justify-between gap-2">
+      <div className="font-secondary text-2xl text-white">{item}</div>
+      <button
+        type="submit"
+        className="border-0 bg-white p-2 font-primary text-xs font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline"
+      >
+        Remove
+      </button>
+    </div>
+  );
+}
+
 async function ShoppingList() {
   const shoppingList = await getShoppingList();
 
   return (
     <div className="flex flex-col gap-4">
-      {shoppingList.map((item) => {
-        return (
-          <div key={item} className="flex flex-row justify-between gap-2">
-            <div className="font-secondary text-2xl text-white">{item}</div>
-            <button
-              type="submit"
-              className="border-0 bg-white p-2 font-primary text-xs font-bold text-equal-experts-blue hover:bg-gray-300 hover:underline"
-            >
-              Remove
-            </button>
-          </div>
-        );
-      })}
+      {shoppingList.map((item) => (
+        <ShoppingListItem key={item} item={item} />
+      ))}
     </div>
   );
 }
