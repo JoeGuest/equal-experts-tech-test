@@ -1,8 +1,4 @@
-import {
-  getShoppingList,
-  addItemToShoppingList,
-  deleteItemFromShoppingList,
-} from "./actions";
+import { getShoppingList, addItemToShoppingList } from "./actions";
 import { Checkbox, RemoveButton } from "./components";
 import type { ShoppingListItem } from "./data/shoppingList";
 

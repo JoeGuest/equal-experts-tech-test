@@ -14,7 +14,11 @@ export async function addItemToShoppingList(formData: FormData) {
   const nextIdToUse = lastItem.id + 1;
 
   if (item) {
-    shoppingList.set(nextIdToUse.toString(), { id: nextIdToUse, name: item });
+    shoppingList.set(nextIdToUse.toString(), {
+      id: nextIdToUse,
+      name: item,
+      checked: false,
+    });
     revalidatePath("/");
     return { message: `Added item "${item}" to shopping list` };
   }
