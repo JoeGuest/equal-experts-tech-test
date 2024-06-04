@@ -36,7 +36,7 @@ test("can add item to shopping list", async ({ page }) => {
   await expect(page.getByText(itemText)).toBeVisible();
 });
 
-test.skip("can remove item from shopping list", async ({ page }) => {
+test("can remove item from shopping list", async ({ page }) => {
   await page.goto("http://localhost:3000");
 
   // Check if item is in the list
