@@ -21,7 +21,7 @@ async function AddNewItem() {
         id="item"
         name="item"
         type="text"
-        placeholder="Add new item"
+        placeholder="Add an item"
         className="border-0 border-white p-2 font-secondary"
       />
       <button
