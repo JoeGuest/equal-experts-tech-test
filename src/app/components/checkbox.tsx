@@ -11,7 +11,7 @@ export default function Checkbox({ item }: { item: ShoppingListItem }) {
       name="item"
       checked={item.checked}
       readOnly
-      onChange={async (e) => toggleChecked({ id: item.id })}
+      onChange={async () => toggleChecked({ id: item.id })}
     />
   );
 }
